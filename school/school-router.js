@@ -3,7 +3,7 @@ const Schools = require('./school-model');
 
 
 
-router.post('./', (req, res) => {
+router.post('/', (req, res) => {
     Schools.add(req.body)
     .then(school => {
         res.status.json(school)
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json(err))
 });
 
-router.get('./:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const { id } = req.params;
     Schools.findById(id)
         .then(school => {
@@ -31,7 +31,7 @@ router.get('./:id', (req, res) => {
         .catch(err => res.status(500).json(err))
 });
 
-router.get('./:id/students', (req, res => {
+router.get('/:id/students', (req, res) => {
     const { id } = req.params;
     Schools.findById(id)
         .then(school => {
@@ -42,11 +42,11 @@ router.get('./:id/students', (req, res => {
             }
         })
         .catch(err => res.status(500).json(err))
-}))
+})
 
 
 
-router.put('./:id', (req, res) => {
+router.put('/:id', (req, res) => {
     Schools.update(req.params.id, req.body)
      .then(school => {
          if(school) {
@@ -58,7 +58,7 @@ router.put('./:id', (req, res) => {
 })
 
 
-router.delete('./:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     Schools.remove(req.params.id)
         .then(school => {
             if(school) {
