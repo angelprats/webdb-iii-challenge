@@ -10,4 +10,5 @@ server.use(express.json());
 
 server.use('./api/schools', schoolRouter);
 
+
 module.export = server;

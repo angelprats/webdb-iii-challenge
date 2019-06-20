@@ -8,15 +8,9 @@ module.exports = {
 
 const knex = require('knex');
 
-const config = {
-    client: 'sqlite3',
-    connection: {
-        filename: 'data/lambda.db3'
-    },
-    useNullAsDefault: true
-}
+const config = require('./knexfile.js')
 
-const db = knex(config);
+const db = knex(config.development);
 
 function find() {
     return db('lambda');
